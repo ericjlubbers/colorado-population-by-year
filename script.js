@@ -1,6 +1,6 @@
 // Edit the initial year and number of tabs to match your GeoJSON data and tabs in index.html
-var year = "1910";
-var tabs = 11;
+var year = "2000";
+var tabs = 19;
 
 // Edit the center point and zoom level
 var map = L.map('map', {
@@ -11,7 +11,7 @@ var map = L.map('map', {
 
 // Edit links to your GitHub repo and data source credit
 map.attributionControl
-.setPrefix('View <a href="http://github.com/jackdougherty/leaflet-map-polygon-tabs">data and code on GitHub</a>, created with <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>; design by <a href="http://ctmirror.org">CT Mirror</a>');
+.setPrefix('View <a href="https://github.com/ericjlubbers/colorado-population-by-year">data and code on GitHub</a>, created with <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>; design by <a href="http://ctmirror.org">CT Mirror</a>');
 
 // Basemap layer
 new L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
