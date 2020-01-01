@@ -1,7 +1,3 @@
-div.description {
-font-family:'Libre Franklin',sans-serif;
-}
-
 .interactiveContainer {
     width: 100%;
     font-family: 'Libre Franklin',Arial, sans-serif;
@@ -11,7 +7,7 @@ font-family:'Libre Franklin',sans-serif;
 #map {
     position: absolute;
     left: 0;
-    top: 400px;
+    top: 35px;
     width: 100%;
     height: 900px;
 }
