@@ -29,19 +29,24 @@ $.getJSON("colorado-counties.geojson", function (data) {
 // Edit range cutoffs and colors to match your data; see http://colorbrewer.org
 // Any values not listed in the ranges below displays as the last color
 function getColor(d) {
-  return d > 2.0 ? '#006d2c' :
-         d > 1.5 ? '#31a354' :
-         d > 1.0 ? '#74c476' :
-         d > 0.5 ? '#bae4b3' :
-         d > 0.1 ? '#edf8e9' :
-                   'white' ;
+  return d > 0.9 ? '#08519c' :
+         d > 0.08 ? '#3182bd' :
+         d > 0.06 ? '#6baed6' :
+         d > 0.04 ? '#9ecae1' :
+         d > 0.02 ? '#c6dbef' :
+         d > 0.00 ? '#eff3ff' :
+         d = 0.00 ? '#ffffff' :
+         d > -0.01 ? '#fee5d9' :
+         d > -0.02 ? '#fcae91' :
+         d > -0.03 ? '#fb6a4a' :
+                   '#cb181d' ;
 }
 
 // Edit the getColor property to match data properties in your GeoJSON file
 // In this example, columns follow this pattern: index1910, index1920...
 function style(feature) {
   return {
-    fillColor: getColor(feature.properties["index" + year]),
+    fillColor: getColor(feature.properties["change" + year]),
     weight: 1,
     opacity: 1,
     color: 'black',
@@ -106,8 +111,8 @@ $(".tabItem").click(function() {
 var legend = L.control({position: 'bottomright'});
 legend.onAdd = function (map) {
   var div = L.DomUtil.create('div', 'info legend'),
-    grades = [0.1, 0.5, 1.0, 1.5, 2],
-    labels = [],
+    grades = [-0.03,-0.02,-0.01,0,0.02,0.04,0.06,0.08,0.1],
+    labels = ['-3% +','-2%','-1%',0,'2%','4%','6%','8%',"10% +"],
     from, to;
   for (var i = 0; i < grades.length; i++) {
     from = grades[i];
