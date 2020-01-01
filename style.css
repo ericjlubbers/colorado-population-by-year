@@ -1,6 +1,10 @@
+div.description {
+font-family:'Libre Franklin',sans-serif;
+}
+
 .interactiveContainer {
     width: 100%;
-    font-family: Arial, sans-serif;
+    font-family: 'Libre Franklin',Arial, sans-serif;
 }
 /* Edit top to fit tabBar height: 35px */
 /* Edit height to display full map: 500px */
@@ -17,7 +21,7 @@
 /* Edit width based on number of tabs to display
 In this example, width = 9% for 10 tabs + cell borders */
 .tabItem {
-    width: 9%;
+    width: 5%;
     padding: 2px 0px 2px 0px;
     float: left;
     margin-left: -1px;
@@ -25,7 +29,7 @@ In this example, width = 9% for 10 tabs + cell borders */
     border-right: none;
     cursor: pointer;
     text-align: center;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: normal;
     text-transform: uppercase;
     color: #ccc;
