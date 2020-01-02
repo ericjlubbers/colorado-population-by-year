@@ -33,8 +33,7 @@ function getColor(d) {
   d > 8 ? '#3182bd' :
     d > 6 ? '#6baed6' :
     d > 4 ? '#9ecae1' :
-    d > 2 ? '#c6dbef' :
-    d > 0 ? '#eff3ff' :
+    d > 0 ? '#c6dbef' :
     d > -1 ? '#fddbc7' :
     d > -3 ? '#d6604d' :
   d < -3 ? '#b2182b' :
