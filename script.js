@@ -29,16 +29,16 @@ $.getJSON("colorado-counties.geojson", function (data) {
 // Edit range cutoffs and colors to match your data; see http://colorbrewer.org
 // Any values not listed in the ranges below displays as the last color
 function getColor(d) {
-  return d > 0.9 ? '#053061' :
-         d > 0.08 ? '#2166ac' :
-         d > 0.06 ? '#4393c3' :
-         d > 0.04 ? '#92c5de' :
-         d > 0.02 ? '#d1e5f0' :
-         d > 0.00 ? '#f7f7f7' :
-         d > -0.01 ? '#fddbc7' :
-         d > -0.02 ? '#f4a582' :
-         d > -0.03 ? '#d6604d' :
-                   '#f7f7f7' ;
+  return d > 10 ? '#08519c' :
+  d > 8 ? '#3182bd' :
+    d > 6 ? '#6baed6' :
+    d > 4 ? '#9ecae1' :
+    d > 2 ? '#c6dbef' :
+    d > 0 ? '#eff3ff' :
+    d > -1 ? '#fddbc7' :
+    d > -3 ? '#d6604d' :
+  d < -3 ? '#b2182b' :
+                   '#d9d9d9' ;
 }
 
 // Edit the getColor property to match data properties in your GeoJSON file
@@ -94,7 +94,7 @@ info.onAdd = function (map) {
 info.update = function (props) {
   var winName =
   this._div.innerHTML = (props ?
-    '<div class="areaName">' + props.name + ' County</div>' : '<div class="areaName faded"><small>Hover over areas<br>Click tabs or arrow keys</small></div>') + '<div class="areaLabel"><div class="areaValue">Home Value Index</div>' +(props ? '' + (checkNull(props["index" + year])) : '--') + '</div>';
+    '<div class="areaName">' + props.name + ' County</div>' : '<div class="areaName faded"><small>Hover over areas<br>Click tabs or arrow keys</small></div>') + '<div class="areaLabel"><div class="areaValue">Est. Population</div>' +(props ? '' + (checkNull(props["change" + year])) : '--') + '%</div>';
 };
 info.addTo(map);
 
