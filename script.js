@@ -112,7 +112,7 @@ var legend = L.control({position: 'bottomright'});
 legend.onAdd = function (map) {
   var div = L.DomUtil.create('div', 'info legend'),
     grades = [-0.03,-0.02,-0.01,0,0.02,0.04,0.06,0.08,0.1],
-    labels = ['-3% +','-2%','-1%',0,'2%','4%','6%','8%',"10% +"],
+    labels = [],
     from, to;
   for (var i = 0; i < grades.length; i++) {
     from = grades[i];
