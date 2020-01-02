@@ -113,9 +113,9 @@ legend.onAdd = function (map) {
     grades = [0.1,0.08,0.06,0.04,0.02,-0.01,-0.02,-0.03],
     labels = [],
     from, to;
-//   for (var i = 0; i < grades.length; i++) {
-//     from = grades[i];
-//     to = grades[i + 1];
+  for (var i = 0; i < grades.length; i++) {
+    from = grades[i];
+    to = grades[i + 1];
     // manually inserted from + 0.1 to start one step above default 0 = white color
     labels.push(
       '<i style="background:' + getColor(from) + '"></i> ' +
