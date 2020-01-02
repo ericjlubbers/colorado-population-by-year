@@ -5,7 +5,7 @@ var state = "Statewide";
 
 // Edit the center point and zoom level
 var map = L.map('map', {
-  center: [39.279,-103.810],
+  center: [39.313/-104.722],
   zoom: 6,
   scrollWheelZoom: false
 });
