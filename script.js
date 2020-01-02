@@ -92,7 +92,7 @@ info.onAdd = function (map) {
 info.update = function (props) {
   var winName =
   this._div.innerHTML = (props ?
-    '<div class="areaName">' + props.town + '</div>' : '<div class="areaName faded"><small>Hover over areas<br>Click tabs or arrow keys</small></div>') + '<div class="areaLabel"><div class="areaValue">Home Value Index</div>' +(props ? '' + (checkNull(props["index" + year])) : '--') + '</div>';
+    '<div class="areaName">' + props.name + ' County</div>' : '<div class="areaName faded"><small>Hover over county<br>Click tabs or arrow keys</small></div>') + '<div class="areaLabel"><div class="areaValue">Est. Population</div>' +(props ? '' + (checkNull(props[year])) : '--') + '</div>';
 };
 info.addTo(map);
 
@@ -113,12 +113,12 @@ legend.onAdd = function (map) {
     grades = [-0.03,-0.02,-0.01,0,0.02,0.04,0.06,0.08,0.1],
     labels = [],
     from, to;
-  for (var i = 0; i < grades.length; i++) {
+  for (var i = 0.03; i < grades.length; i++) {
     from = grades[i];
     to = grades[i + 1];
     // manually inserted from + 0.1 to start one step above default 0 = white color
     labels.push(
-      '<i style="background:' + getColor(from + 0.1) + '"></i> ' +
+      '<i style="background:' + getColor(from + -0.03) + '"></i> ' +
       from + (to ? '&ndash;' + to : '+'));
   }
   div.innerHTML = labels.join('<br>');
