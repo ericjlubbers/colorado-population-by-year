@@ -94,7 +94,7 @@ info.onAdd = function (map) {
 info.update = function (props) {
   var winName =
   this._div.innerHTML = (props ?
-    '<div class="areaName">' + props.name + ' County</div>' : '<div class="areaName faded"><small>Hover over areas<br>Click tabs or arrow keys</small></div>') + '<div class="areaLabel"><div class="areaValue">Est. ' + year + ' Population<br />5-year change</div>' +(props ? '' + (checkNull(props["change" + year])) + '%' : '--') + '<br />' + (checkNull(props[year])) : '--') '</div>';
+    '<div class="areaName">' + props.name + ' County</div>' : '<div class="areaName faded"><small>Hover over areas<br>Click tabs or arrow keys</small></div>') + '<div class="areaLabel"><div class="areaValue">Home Value Index</div>' +(props ? '' + (checkNull(props["index" + year])) : '--') + '</div>';
 };
 info.addTo(map);
 
