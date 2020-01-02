@@ -110,7 +110,7 @@ $(".tabItem").click(function() {
 var legend = L.control({position: 'bottomright'});
 legend.onAdd = function (map) {
   var div = L.DomUtil.create('div', 'info legend'),
-    grades = [0.1,0.08,0.06,0.04,0.02,-0.01,-0.02,-0.03],
+    grades = [0.1, 0.5, 1.0, 1.5, 2],
     labels = [],
     from, to;
   for (var i = 0; i < grades.length; i++) {
@@ -118,7 +118,7 @@ legend.onAdd = function (map) {
     to = grades[i + 1];
     // manually inserted from + 0.1 to start one step above default 0 = white color
     labels.push(
-      '<i style="background:' + getColor(from) + '"></i> ' +
+      '<i style="background:' + getColor(from + 0.1) + '"></i> ' +
       from + (to ? '&ndash;' + to : '+'));
   }
   div.innerHTML = labels.join('<br>');
