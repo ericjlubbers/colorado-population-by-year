@@ -1,21 +1,7 @@
-# leaflet-map-polygon-tabs
-Leaflet thematic polygon map, with hover info, tabs to display time periods, and data drawn from GeoJSON file
+# Colorado Population 2000-2050 by The Colorado Sun
+A map of Colorado's population, culled from Census reports and future forecasts from the Colorado State Demography Office. 
 
-## Demo
-https://datavizforall.github.io/leaflet-map-polygon-tabs
+[Read the whole story](https://coloradosun.com/2020/01/02/colorado-population-2020-statistics/) here.
 
 ## Credits
-- Map design by [@alvinschang](https://github.com/alvinschang) Connecticut Mirror http://ctmirror.org
-- Code improvements by [@ilyankou](https://github.com/ilyankou)
-
-## Pros
-- Hover over polygon to view info; or tap polygon in mobile devices
-- Click tabs or keyboard arrow keys to flip through data series (such as decades or categories)
-- Easily create and upload data by joining a CSV table to a GeoJSON map boundary in MapShaper.org
-
-## Cons
-- Automated legend displays only numerical ranges, not text values
-- This version displays only one GeoJSON map boundary
-
-## Create your own
-- see Leaflet templates section of *Data Visualization for All* book http://datavizforall.org
+- Map design by [@brofax](http://twitter.com/brofax) Eric Lubbers for [The Colorado Sun](http://coloradosun.com) based in part on work by [DataVizForAll](https://datavizforall.org/leaflet.html), [@alvinschang](https://github.com/alvinschang) Connecticut Mirror http://ctmirror.org and [@ilyankou](https://github.com/ilyankou).
