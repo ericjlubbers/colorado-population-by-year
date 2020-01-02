@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Colorado Population 2000-2050 — The Colorado Sun</title>
-    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:400,700,900|Roboto+Condensed:400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
-    <link rel="stylesheet" href="style-full.css" />
-<!--     BOOTSTRAP -->
-    <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-124743561-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Colorado Population 2000-2050 — The Colorado Sun</title>
+  <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:400,700,900|Roboto+Condensed:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+  <link rel="stylesheet" href="style-full.css" />
+  <!--     BOOTSTRAP -->
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-124743561-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'UA-124743561-1');
-</script>
+    gtag('config', 'UA-124743561-1');
+  </script>
 
-  </head>
-  </body>
-  <!-- This div displays the container, tabs, and map; add title and caption if desired -->
+</head>
+</body>
+<!-- This div displays the container, tabs, and map; add title and caption if desired -->
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-sm-2"><a href="http://coloradosun.com"><img style="width:150px;" class="mx-auto" src="https://coloradosun.com/wp-content/uploads/sites/15/2020/01/Sun-Italic-logo-Black.png?w=300"></a>
@@ -31,35 +31,35 @@
     <div class="col-sm-4">
       <h4>A project by <a href="http://coloradosun.com">The Colorado Sun</a></h4>
       <p><em>Member-supported Colorado news.</em><br />Sign up for our free, 3x weekly newsletter, <a href="http://coloradosun.com/newsletters">The Sunriser</a>.</p>
-</div>
     </div>
   </div>
+
   <div class="row">
     <h1 style="font-family:'Libre Franklin',sans-serif;font-weight:bold;">Colorado Population 2000-2050</h1><p class="nav" style="padding-bottom:1em;"><strong>Color</strong> = % change over prev 5 years | <strong>DATA:</strong> COLORADO STATE DEMOGRAPHER</p>
 
     <div class="tabBar">
-        <div class="interactiveContainer">
-      <!-- Edit the labels for each tab, such as "1910" -->
-      <div id="tab2" class="tabItem">2005</div>
-      <div id="tab3" class="tabItem">2010</div>
-      <div id="tab4" class="tabItem">2015</div>
-      <div id="tab5" class="tabItem selected first">2020</div>
-      <div id="tab6" class="tabItem">2025</div>
-      <div id="tab7" class="tabItem">2030</div>
-      <div id="tab8" class="tabItem">2035</div>
-      <div id="tab9" class="tabItem">2040</div>
-      <div id="tab10" class="tabItem">2045</div>
-      <div id="tab11" class="tabItem">2050</div>
+      <div class="interactiveContainer">
+        <!-- Edit the labels for each tab, such as "1910" -->
+        <div id="tab2" class="tabItem">2005</div>
+        <div id="tab3" class="tabItem">2010</div>
+        <div id="tab4" class="tabItem">2015</div>
+        <div id="tab5" class="tabItem selected first">2020</div>
+        <div id="tab6" class="tabItem">2025</div>
+        <div id="tab7" class="tabItem">2030</div>
+        <div id="tab8" class="tabItem">2035</div>
+        <div id="tab9" class="tabItem">2040</div>
+        <div id="tab10" class="tabItem">2045</div>
+        <div id="tab11" class="tabItem">2050</div>
       </div>
       <div id="map" class="fullscreen"></div>
+    </div>
+  </div>
 </div>
-</div>
-   
-    </div>    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</div>    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet-choropleth@1.1.4/src/choropleth.min.js"></script>
-    <script type="text/javascript" src="script.js"></script>
-  </body>
+<script type="text/javascript" src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet-choropleth@1.1.4/src/choropleth.min.js"></script>
+<script type="text/javascript" src="script.js"></script>
+</body>
 </html>
