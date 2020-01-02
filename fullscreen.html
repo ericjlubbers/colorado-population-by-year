@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Colorado Population 2000-2050 — The Colorado Sun</title>
+    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:400,700,900|Roboto+Condensed:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  </body>
+  <!-- This div displays the container, tabs, and map; add title and caption if desired -->
+   <h1>Colorado Population 2000-2050</h1><p class="nav"><strong>Color</strong> = % change over prev 5 years | <strong>DATA:</strong> COLORADO STATE DEMOGRAPHER</p>
+
+    <div class="tabBar">
+        <div class="interactiveContainer">
+      <!-- Edit the labels for each tab, such as "1910" -->
+      <div id="tab2" class="tabItem">2005</div>
+      <div id="tab3" class="tabItem">2010</div>
+      <div id="tab4" class="tabItem">2015</div>
+      <div id="tab5" class="tabItem selected first">2020</div>
+      <div id="tab6" class="tabItem">2025</div>
+      <div id="tab7" class="tabItem">2030</div>
+      <div id="tab8" class="tabItem">2035</div>
+      <div id="tab9" class="tabItem">2040</div>
+      <div id="tab10" class="tabItem">2045</div>
+      <div id="tab11" class="tabItem">2050</div>
+      </div>
+      <div id="map"></div>
+    </div>    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-choropleth@1.1.4/src/choropleth.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
