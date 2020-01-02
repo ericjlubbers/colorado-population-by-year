@@ -1,17 +1,18 @@
 // Edit the initial year and number of tabs to match your GeoJSON data and tabs in index.html
-var year = "2000";
-var tabs = 19;
+var year = "2020";
+var tabs = 10;
+var state = "Statewide";
 
 // Edit the center point and zoom level
 var map = L.map('map', {
-  center: [39.343,-105.441],
-  zoom: 8,
+  center: [39.279,-103.810],
+  zoom: 6,
   scrollWheelZoom: false
 });
 
 // Edit links to your GitHub repo and data source credit
 map.attributionControl
-.setPrefix('View <a href="https://github.com/ericjlubbers/colorado-population-by-year">data and code on GitHub</a>, created with <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>; design by <a href="http://ctmirror.org">CT Mirror</a>');
+.setPrefix('View <a href="https://github.com/ericjlubbers/colorado-population-by-year">data and code on GitHub</a>, created with <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>; design by <a href="http://coloradosun.com">Eric Lubbers, The Colorado Sun</a>');
 
 // Basemap layer
 new L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
@@ -19,26 +20,29 @@ new L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png
 }).addTo(map);
 
 // Edit to upload GeoJSON data file from your local directory
-$.getJSON("colorado-counties.geojson", function (data) {
+$.getJSON("https://ericjlubbers.github.io/colorado-population-by-year/colorado-counties.geojson", function (data) {
   geoJsonLayer = L.geoJson(data, {
     style: style,
     onEachFeature: onEachFeature
   }).addTo(map);
 });
 
+
+
+
 // Edit range cutoffs and colors to match your data; see http://colorbrewer.org
 // Any values not listed in the ranges below displays as the last color
-function getColor(d) {
-  return d > 10 ? '#08519c' :
-  d > 8 ? '#3182bd' :
-    d > 6 ? '#6baed6' :
-    d > 4 ? '#9ecae1' :
-    d > 0 ? '#c6dbef' :
-    d > -1 ? '#fddbc7' :
-    d > -3 ? '#d6604d' :
-  d < -3 ? '#b2182b' :
-                   '#d9d9d9' ;
-}
+// function getColor(d) {
+//   return d > 10 ? '#08519c' :
+//   d > 8 ? '#3182bd' :
+//     d > 6 ? '#6baed6' :
+//     d > 4 ? '#9ecae1' :
+//     d > 0 ? '#c6dbef' :
+//     d > -2 ? '#fddbc7' :
+//     d > -4 ? '#d6604d' :
+//   d > -6 ? '#b2182b' :
+//                    '#b2182b'
+// }
 
 // Edit the getColor property to match data properties in your GeoJSON file
 // In this example, columns follow this pattern: index1910, index1920...
@@ -88,15 +92,6 @@ info.onAdd = function (map) {
 };
 
 
-
-// Edit info box labels (such as props.town) to match properties of the GeoJSON data
-info.update = function (props) {
-  var winName =
-  this._div.innerHTML = (props ?
-    '<div class="areaName">' + props.name + ' County</div>' : '<div class="areaName faded"><small>Hover over areas<br>Click tabs or arrow keys</small></div>') + '<div class="areaLabel"><div class="areaValue">Est. Population</div>' +(props ? '' + (checkNull(props["change" + year])) : '--') + '%</div>';
-};
-info.addTo(map);
-
 // When a new tab is selected, this changes the year displayed
 $(".tabItem").click(function() {
   $(".tabItem").removeClass("selected");
@@ -106,26 +101,57 @@ $(".tabItem").click(function() {
   geoJsonLayer.setStyle(style);
 });
 
+
+// Edit info box labels (such as props.town) to match properties of the GeoJSON data
+info.update = function (props) {
+  var winName =
+  this._div.innerHTML = (props ?
+    '<div class="areaName">' + props.name + ' County</div>' : '<div class="areaName faded"><small>Hover over county for data</small></div>') + '<div class="areaLabel"><div class="areaValue">Est. ' + year + ' Pop.</div>' +(props ? '' + (checkNull(props[year])) : "--") + '</div>'  + '<div class="areaLabel"><div class="areaValue">5-year change</div>' +(props ? '' + (checkNull(props["change" + year])) : '--') + '%</div>' + '<div class="areaLabel"><div class="areaValue">Total ± since 2000</div>' +(props ? '' + (checkNull(props["y2k" + year])) : '--') + '</div>';
+};
+info.addTo(map);
+
+var stops = [
+    { stop: 10, color: '#08519c' },
+    { stop: 8, color: '#3182bd' },
+    { stop: 6, color: '#6baed6' },
+    { stop: 4, color: '#9ecae1' },
+    { stop: 0, color: '#c6dbef' },
+    { stop: -2, color: '#fddbc7' },
+    { stop: -4, color: '#d6604d' },
+    { stop: -6, color: '#b2182b' },
+    { stop: -15, color: '#8f0e1e' },
+];
+
+
+
+function getColor(d) {
+  for (var i in stops) {
+    if (d > stops[i].stop) { return stops[i].color; }
+  }
+};
+
 // Edit grades in legend to match the range cutoffs inserted above
 // In this example, the last grade will appear as "2+"
 var legend = L.control({position: 'bottomright'});
+
 legend.onAdd = function (map) {
-  var div = L.DomUtil.create('div', 'info legend'),
-    grades = [0.1, 0.5, 1.0, 1.5, 2],
-    labels = [],
-    from, to;
-  for (var i = 0; i < grades.length; i++) {
-    from = grades[i];
-    to = grades[i + 1];
-    // manually inserted from + 0.1 to start one step above default 0 = white color
-    labels.push(
-      '<i style="background:' + getColor(from + 0.1) + '"></i> ' +
-      from + (to ? '&ndash;' + to : '+'));
-  }
-  div.innerHTML = labels.join('<br>');
-  return div;
+
+    var div = L.DomUtil.create('div', 'info legend'),
+        grades = [-10,-4,-2,0.1,4,6,8,10,11],
+        labels = [];
+
+    // loop through our density intervals and generate a label with a colored square for each interval
+    for (var i = 0; i < grades.length; i++) {
+        div.innerHTML +=
+            '<i style="background:' + getColor(grades[i]) + '"></i> ' +
+            grades[i] + (grades[i + 1] ? ' to ' + grades[i + 1] + '%<br>' : '% +');
+    }
+
+    return div;
 };
+
 legend.addTo(map);
+
 
 // In info.update, this checks if GeoJSON data contains a null value, and if so displays "--"
 function checkNull(val) {
@@ -135,6 +161,8 @@ function checkNull(val) {
     return "--";
   }
 }
+
+
 
 // Use in info.update if GeoJSON data needs to be displayed as a percentage
 function checkThePct(a,b) {
