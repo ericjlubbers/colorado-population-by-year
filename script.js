@@ -29,17 +29,16 @@ $.getJSON("colorado-counties.geojson", function (data) {
 // Edit range cutoffs and colors to match your data; see http://colorbrewer.org
 // Any values not listed in the ranges below displays as the last color
 function getColor(d) {
-  return d > 0.9 ? '#08519c' :
-         d > 0.08 ? '#3182bd' :
-         d > 0.06 ? '#6baed6' :
-         d > 0.04 ? '#9ecae1' :
-         d > 0.02 ? '#c6dbef' :
-         d > 0.00 ? '#eff3ff' :
-         d = 0.00 ? '#ffffff' :
-         d > -0.01 ? '#fee5d9' :
-         d > -0.02 ? '#fcae91' :
-         d > -0.03 ? '#fb6a4a' :
-                   '#cb181d' ;
+  return d > 0.9 ? '#053061' :
+         d > 0.08 ? '#2166ac' :
+         d > 0.06 ? '#4393c3' :
+         d > 0.04 ? '#92c5de' :
+         d > 0.02 ? '#d1e5f0' :
+         d > 0.00 ? '#f7f7f7' :
+         d > -0.01 ? '#fddbc7' :
+         d > -0.02 ? '#f4a582' :
+         d > -0.03 ? '#d6604d' :
+                   '#f7f7f7' ;
 }
 
 // Edit the getColor property to match data properties in your GeoJSON file
