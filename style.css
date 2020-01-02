@@ -14,6 +14,14 @@ p.nav {font-family:'Roboto Condensed',sans-serif;text-transform: uppercase;color
     width: 100%;
     height: 70vh;
 }
+
+#map.fullscreen {
+    position: absolute;
+    left: 0;
+    top: 10vh;
+    width: 100%;
+    height: 80vh;
+}
 .tabBar {
     font: 14px/16px 'Libre Franklin',Arial, Helvetica, sans-serif;
 }
